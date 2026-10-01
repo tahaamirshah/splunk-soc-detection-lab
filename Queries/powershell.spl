@@ -1,0 +1,4 @@
+index=main sourcetype="sysmon:process"
+| spath
+| search EventID=1 CommandLine="*ExecutionPolicy Bypass*"
+| table _time host User Image CommandLine IntegrityLevel ParentImage

@@ -1,0 +1,4 @@
+index=main sourcetype="sysmon:process"
+| spath
+| search EventID=1 Image="*curl.exe"
+| table _time host User Image CommandLine IntegrityLevel ParentImage

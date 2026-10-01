@@ -1,0 +1,5 @@
+index=main sourcetype="windows:security"
+| spath
+| search EventID=4625
+| stats count as FailedAttempts values(IpAddress) as SourceIP by TargetUserName
+| where FailedAttempts >= 3
